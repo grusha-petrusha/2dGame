@@ -1,13 +1,14 @@
 package com.grusha.mygame;
 
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.geom.Rectangle;
 
 public class Persecutor extends GameObject {
     
     protected Persecutor() throws SlickException {
         super(700,824,null);
-        this.hitbox = new Rectangle(xpos-96, ypos-96, 192,96 ); // 16- 96   before 16 - 128 pix in general
+        //this.hitbox = new Rectangle(xpos-96, ypos-96, 192,96 ); // 16- 96   before 16 - 128 pix in general
         this.temp_xpos = this.xpos;
         this.temp_ypos = this.ypos;
         this.generalspeed = 2f;
@@ -16,6 +17,12 @@ public class Persecutor extends GameObject {
         this.jumpPower = -5f;
         this.groundY = 824;
         this.isJumping = false;
+        this.img = new Image("sprites/Sprite-0004.png"); //600%
+
+        this.hitbox = new Rectangle(this.xpos - this.img.getWidth() / 2,
+									 this.ypos- this.img.getHeight(),
+									 this.img.getWidth(),
+									 this.img.getHeight());	
     }
 
     public void update() throws SlickException{

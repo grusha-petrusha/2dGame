@@ -1,6 +1,7 @@
 package com.grusha.mygame;
 
 import org.newdawn.slick.Color;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.geom.Shape;
 
 
@@ -20,6 +21,7 @@ public abstract class GameObject {
     protected float jumpPower;
     protected int groundY;
     protected boolean isJumping;
+    protected Image img;
 
     protected GameObject(int xpos, int ypos, Shape hitbox) {
         this.xpos = xpos;
@@ -29,6 +31,10 @@ public abstract class GameObject {
     }
 
     public void render() {
+        if (this.img != null)
+		{
+			this.img.draw(this.xpos-(int)img.getWidth()/2, this.ypos-(int)img.getHeight());
+		}
         if(this.hitbox!=null) {
             Game.gameContainer.getGraphics().setColor(Color.pink);
 			Game.gameContainer.getGraphics().draw(this.hitbox);

@@ -16,7 +16,7 @@ public class Game extends BasicGame {
     
     public static GameContainer gameContainer;
     public static Player player;
-
+    public static Persecutor persecutor;
 
     public Game(String title) {
         super(title);
@@ -26,17 +26,21 @@ public class Game extends BasicGame {
   
     public void init(GameContainer container) throws SlickException {
         player = new Player();
+        persecutor = new Persecutor();
         gameContainer = container;
+        
     }
 
     public void update(GameContainer container, int delta) throws SlickException {
         player.update();
+        persecutor.update();
         //System.out.println(player.getxHitbox() + " update " + player.getyHitbox());
     }
 
     public void render(GameContainer container, Graphics argi) throws SlickException {
         //System.out.println(player.getxHitbox() + " " + player.getyHitbox());
         player.render();
+        persecutor.render();
     }
 
     
