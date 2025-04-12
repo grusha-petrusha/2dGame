@@ -17,12 +17,13 @@ public class Persecutor extends GameObject {
         this.jumpPower = -5f;
         this.groundY = 824;
         this.isJumping = false;
-        this.img = new Image("sprites/Sprite-0004.png"); //600%
+        this.img = new Image("assets/Sprite-0004.png"); //600%
 
         this.hitbox = new Rectangle(this.xpos - this.img.getWidth() / 2,
 									 this.ypos- this.img.getHeight(),
 									 this.img.getWidth(),
 									 this.img.getHeight());	
+        System.out.println(this.img.getWidth() + " " + this.img.getHeight() );
     }
 
     public void update() throws SlickException{
